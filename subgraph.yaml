@@ -1,0 +1,26 @@
+specVersion: 0.0.2
+description: Ethereum 2 deposit contract for the Onyx testnet
+repository: https://github.com/attestantio/eth2deposits-subgraph-onyx
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: DepositContract
+    network: goerli
+    source:
+      address: '0x0F0F0fc0530007361933EaB5DB97d09aCDD6C1c8'
+      abi: DepositContract
+      startBlock: 2844925
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.1.0
+      language: wasm/assemblyscript
+      entities:
+        - Gravatar
+      abis:
+        - name: DepositContract
+          file: ./abis/DepositContract.abi
+      eventHandlers:
+        - event: DepositEvent(bytes,bytes,bytes,bytes,bytes)
+          handler: handleDepositEvent
+      file: ./src/mapping.ts

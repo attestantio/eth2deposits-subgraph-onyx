@@ -1,0 +1,9 @@
+type Deposit @entity {
+  id: ID!
+  transactionHash: Bytes!
+  validatorPubKey: Bytes!
+  withdrawalCredentials: Bytes!
+  amount: BigInt!
+  signature: Bytes!
+  index: BigInt!
+}
