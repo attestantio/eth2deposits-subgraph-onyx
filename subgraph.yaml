@@ -13,7 +13,7 @@ dataSources:
       startBlock: 2844925
     mapping:
       kind: ethereum/events
-      apiVersion: 0.1.0
+      apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
         - Gravatar
